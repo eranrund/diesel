@@ -31,6 +31,8 @@ impl Statement {
             )
         };
 
+        println!("PREP: {}", sql);
+
         ensure_sqlite_ok(prepare_result, raw_connection.internal_connection.as_ptr()).map(|_| {
             Statement {
                 inner_statement: unsafe { NonNull::new_unchecked(stmt) },

@@ -41,6 +41,7 @@ unsafe impl Send for SqliteConnection {}
 
 impl SimpleConnection for SqliteConnection {
     fn batch_execute(&self, query: &str) -> QueryResult<()> {
+        println!("Q: {}", query);
         self.raw_connection.exec(query)
     }
 }
